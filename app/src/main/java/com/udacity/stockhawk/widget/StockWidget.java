@@ -46,6 +46,7 @@ public class StockWidget extends AppWidgetProvider {
                 String change = cursor.getString(Contract.Quote.POSITION_PERCENTAGE_CHANGE);
                 double changeInt = Double.parseDouble(change);
                 if (changeInt < 0.0) {
+
                     views.setInt(R.id.stock_change_widget, "setBackgroundColor", Color.RED);
                 } else if (changeInt > 0.0) {
                     views.setInt(R.id.stock_change_widget, "setBackgroundColor", Color.GREEN);

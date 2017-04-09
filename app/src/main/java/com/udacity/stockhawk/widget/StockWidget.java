@@ -51,6 +51,7 @@ public class StockWidget extends AppWidgetProvider {
                 } else if (changeInt > 0.0) {
                     views.setInt(R.id.stock_change_widget, "setBackgroundColor", Color.GREEN);
                 }
+
                 views.setTextViewText(R.id.stock_change_widget, change + " %");
                 views.setTextViewText(R.id.stock_price_widget, price + " $");
                 views.setTextViewText(R.id.stock_symble_widget, symbol);

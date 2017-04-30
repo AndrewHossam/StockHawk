@@ -27,6 +27,7 @@ public class DetailsActivity extends AppCompatActivity {
         int id = getIntent().getIntExtra("position", -1);
         cursor.moveToPosition(id);
         String history = cursor.getString(Contract.Quote.POSITION_HISTORY);
+
         String symbol = cursor.getString(Contract.Quote.POSITION_SYMBOL);
         ArrayList<Entry> entries = new ArrayList<>();
         try {

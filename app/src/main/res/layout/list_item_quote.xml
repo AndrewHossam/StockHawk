@@ -6,8 +6,6 @@
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:paddingEnd="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
     android:paddingStart="16dp">
 
     <TextView
@@ -39,8 +37,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/percent_change_pill_green"
             android:paddingEnd="3dp"
-            android:paddingLeft="3dp"
-            android:paddingRight="3dp"
             android:paddingStart="3dp"
             tools:text="100%" />
     </LinearLayout>

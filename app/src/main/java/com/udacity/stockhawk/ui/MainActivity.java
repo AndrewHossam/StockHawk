@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -17,7 +18,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
@@ -103,7 +103,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             error.setVisibility(View.VISIBLE);
         } else if (!networkUp()) {
             swipeRefreshLayout.setRefreshing(false);
-            Toast.makeText(this, R.string.toast_no_connectivity, Toast.LENGTH_LONG).show();
+            Snackbar.make(findViewById(R.id.swipe_refresh), R.string.toast_no_connectivity,
+                    Snackbar.LENGTH_SHORT)
+                    .show();
         } else if (PrefUtils.getStocks(this).size() == 0) {
             swipeRefreshLayout.setRefreshing(false);
             error.setText(getString(R.string.error_no_stocks));
@@ -124,7 +126,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 swipeRefreshLayout.setRefreshing(true);
             } else {
                 String message = getString(R.string.toast_stock_added_no_connectivity, symbol);
-                Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+                Snackbar.make(findViewById(R.id.swipe_refresh), message,
+                        Snackbar.LENGTH_SHORT)
+                        .show();
             }
 
             PrefUtils.addStock(this, symbol);

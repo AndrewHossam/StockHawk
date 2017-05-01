@@ -10,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
 
+import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
 
@@ -75,7 +76,7 @@ public final class QuoteSyncJob {
 
                 Stock stock = quotes.get(symbol);
                 StockQuote quote = stock.getQuote();
-                if (quote.getAsk() != null) {
+                if (quote.getPrice() != null) {
 
 
                     float price = quote.getPrice().floatValue();
@@ -106,7 +107,7 @@ public final class QuoteSyncJob {
 
                     quoteCVs.add(quoteCV);
                 } else {
-                    Toast.makeText(context, "Stock is not Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, R.string.stock_not_found, Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -122,7 +123,7 @@ public final class QuoteSyncJob {
         } catch (IOException exception) {
             Timber.e(exception, "Error fetching stock quotes");
         } catch (NullPointerException e) {
-            Toast.makeText(context, "Symbol is not available, please try again", Toast.LENGTH_LONG).show();
+            Timber.e(e, "Symbol is not available");
         }
     }
 

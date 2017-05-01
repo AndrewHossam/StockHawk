@@ -39,7 +39,7 @@ public class DetailsActivity extends AppCompatActivity {
             LineData data = new LineData(lineDataSet);
             lineChart.setData(data);
         } catch (Exception e) {
-            Toast.makeText(this, "No Available Data", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.no_available_data, Toast.LENGTH_LONG).show();
         }
 
     }
